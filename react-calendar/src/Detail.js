@@ -3,9 +3,14 @@ import Button from '@material-ui/core/Button';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import RedditIcon from '@material-ui/icons/Reddit';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCalendarFB } from './redux/modules/calendar';
+import {
+  getCalendarFB,
+  deleteCalendarFB,
+  updateCalendarFB,
+} from './redux/modules/calendar';
 
 function Detail(props) {
   const data = useSelector((state) => state.calendar.list);
@@ -14,10 +19,11 @@ function Detail(props) {
     dispatch(getCalendarFB());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  let calendarId = props.match.params.defid;
   let primaryData;
 
   for (let i = 0; i < data.length; i++) {
-    if (data[i].id === props.match.params.defid) {
+    if (data[i].id === calendarId) {
       primaryData = data[i];
     }
   }
@@ -25,6 +31,13 @@ function Detail(props) {
   return (
     <Container className='container'>
       <Modal>
+        <GoBack
+          onClick={() => {
+            props.history.goBack();
+          }}
+        >
+          <ExitToAppIcon style={{ color: '#EC7063' }} />
+        </GoBack>
         <h1>
           <AlarmIcon /> &nbsp;상세 일정 보기
         </h1>
@@ -43,6 +56,7 @@ function Detail(props) {
             variant='contained'
             style={{ marginRight: '50px' }}
             onClick={() => {
+              dispatch(deleteCalendarFB(calendarId));
               props.history.goBack();
             }}
           >
@@ -53,6 +67,7 @@ function Detail(props) {
             color='primary'
             style={{ marginTop: '5px' }}
             onClick={() => {
+              dispatch(updateCalendarFB(calendarId));
               props.history.goBack();
             }}
           >
@@ -95,6 +110,13 @@ const Modal = styled.div`
   & Button {
     min-width: 200px;
   }
+`;
+const GoBack = styled.div`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  left: -30px;
 `;
 const BtnGroup = styled.div`
   margin: 0 auto;

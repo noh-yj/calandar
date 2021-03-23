@@ -23,7 +23,7 @@ function Upload(props) {
     if (new_item.date === '') {
       window.alert('날짜를 입력해주세요');
       return;
-    } else if (new_item.plan === '') {
+    } else if (new_item.title === '') {
       window.alert('일정을 입력해주세요');
       return;
     }
