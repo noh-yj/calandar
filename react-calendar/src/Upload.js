@@ -12,9 +12,6 @@ function Upload(props) {
   const dispatch = useDispatch();
 
   const addContent = () => {
-    // console.log(dateTime.current.value);
-    // console.log(plan.current.value);
-
     const new_item = {
       date: dateTime.current.value.split('T')[0],
       title: plan.current.value,
@@ -30,6 +27,7 @@ function Upload(props) {
     dispatch(addCalendarFB(new_item));
     window.alert('할일이 추가되었습니다!');
     props.history.push('/');
+    return;
   };
 
   return (

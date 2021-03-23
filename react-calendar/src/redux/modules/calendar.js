@@ -8,13 +8,7 @@ const DELETE = 'calendar/DELETE';
 const UPDATE = 'calendar/UPDATE';
 
 const initialState = {
-  list: [
-    {
-      date: '2020-03-22',
-      title: '운동 하기',
-      completed: false,
-    },
-  ],
+  list: [],
 };
 // action creator
 export const getCalendar = (data) => {
@@ -55,7 +49,7 @@ export const addCalendarFB = (data) => {
       .add(calendar_data)
       .then((res) => {
         calendar_data = { ...calendar_data, id: res.id };
-        dispatch(createCalendar(calendar_data));
+        // dispatch(createCalendar(calendar_data));
       })
       .catch((e) => {
         console.log(e);

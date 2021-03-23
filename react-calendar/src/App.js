@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import styled from 'styled-components';
-import FilterBtn from './FilterBtn';
 import Calendar from './Calendar';
 import Upload from './Upload';
 import Detail from './Detail';
@@ -14,8 +13,6 @@ function App(props) {
     <>
       <Route path='/' exact>
         <Calendar history={props.history} />
-
-        <FilterBtn />
         <PositionBtn>
           <Fab
             color='primary'
