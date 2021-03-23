@@ -1,4 +1,4 @@
-# calandar
+# calendar
 
 ## 개요
 
