@@ -8,13 +8,11 @@ import Calendar from './Calendar';
 import Upload from './Upload';
 import Detail from './Detail';
 import NotFound from './NotFound';
-import Spinner from './Spinner';
 
 function App(props) {
   return (
     <>
       <Switch>
-        <Route path='/spinner' component={Spinner} />
         <Route path='/' exact>
           <Calendar history={props.history} />
           <PositionBtn>

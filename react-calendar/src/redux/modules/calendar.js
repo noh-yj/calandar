@@ -9,6 +9,7 @@ const UPDATE = 'calendar/UPDATE';
 
 const initialState = {
   list: [],
+  is_loaded: false,
 };
 // action creator
 export const getCalendar = (data) => {
@@ -24,6 +25,7 @@ export const deleteCalendar = (id) => {
 export const updateCalendar = (id) => {
   return { type: UPDATE, id };
 };
+
 // firebase
 export const getCalendarFB = () => {
   return function (dispatch) {
@@ -49,7 +51,6 @@ export const addCalendarFB = (data) => {
       .add(calendar_data)
       .then((res) => {
         calendar_data = { ...calendar_data, id: res.id };
-        // dispatch(createCalendar(calendar_data));
       })
       .catch((e) => {
         console.log(e);
@@ -112,9 +113,8 @@ export const updateCalendarFB = (id) => {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'calendar/GET_CALENDAR': {
-      // 중복 항목 제거
       const data = [...new Set([...action.data])];
-      return { list: data };
+      return { list: data, is_loaded: true };
     }
 
     case 'calendar/UPLOAD': {
@@ -140,6 +140,7 @@ export default function reducer(state = initialState, action = {}) {
       });
       return { list: calendar_list };
     }
+
     default:
       return state;
   }
