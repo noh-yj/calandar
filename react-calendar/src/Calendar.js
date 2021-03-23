@@ -7,11 +7,12 @@ import { getCalendarFB } from './redux/modules/calendar';
 function Calendar(props) {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.calendar.list);
+  // const setDate = [...new Set([...data])];
   useEffect(() => {
     dispatch(getCalendarFB());
-    return;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const data_list = data.map((val) => {
     return {
       title: val.title,
@@ -20,8 +21,7 @@ function Calendar(props) {
       completed: false,
     };
   });
-  const get_data = data_list;
-  // console.log(data); 이거 리랜더링 여러번되는거 고쳐야함
+  const set_data_list = [...new Set([...data_list])];
   return (
     <div>
       <FullCalendar
@@ -32,7 +32,7 @@ function Calendar(props) {
           end: 'today',
         }}
         titleFormat={{ year: 'numeric', month: 'short' }}
-        events={get_data}
+        events={set_data_list}
         eventClick={(e) => {
           props.history.push('/detail/' + e.event._def.extendedProps.publicId);
         }}

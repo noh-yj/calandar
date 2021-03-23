@@ -12,7 +12,8 @@ function Detail(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCalendarFB());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   let primaryData;
 
   for (let i = 0; i < data.length; i++) {

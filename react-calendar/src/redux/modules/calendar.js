@@ -61,6 +61,7 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'calendar/GET_CALENDAR': {
       // 중복 항목 제거
+      // const data = [...new Set([...action.data])];
 
       return { list: action.data };
     }
