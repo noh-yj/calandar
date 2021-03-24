@@ -17,7 +17,6 @@ function Detail(props) {
   const data = useSelector((state) => state.calendar.list);
   useEffect(() => {
     dispatch(getCalendarFB());
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -49,7 +48,7 @@ function Detail(props) {
           &nbsp; 날짜: {primaryData ? primaryData.date.split('T')[0] : ' '}{' '}
           &nbsp;&nbsp;
           {primaryData
-            ? primaryData.date.split('T')[1].split(':')[0] > 12
+            ? primaryData.date.split('T')[1].split(':')[0] > 11
               ? '오후'
               : '오전'
             : ''}
