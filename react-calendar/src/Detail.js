@@ -13,13 +13,16 @@ import {
 } from './redux/modules/calendar';
 
 function Detail(props) {
-  const data = useSelector((state) => state.calendar.list);
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.calendar.list);
   useEffect(() => {
     dispatch(getCalendarFB());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   let calendarId = props.match.params.defid;
+
   let primaryData;
 
   for (let i = 0; i < data.length; i++) {
@@ -27,7 +30,7 @@ function Detail(props) {
       primaryData = data[i];
     }
   }
-  const date = primaryData.date.split('T');
+
   return (
     <Container className='container'>
       <Modal>
@@ -43,12 +46,28 @@ function Detail(props) {
         </h1>
         <h2>
           <CalendarTodayIcon style={{ color: '#85C1E9' }} />
-          &nbsp; 날짜: {date[0]} {date[1].split(':')[0] > 12 ? '오후' : '오전'}{' '}
-          {date[1]}
+          &nbsp; 날짜: {primaryData ? primaryData.date.split('T')[0] : ' '}{' '}
+          &nbsp;&nbsp;
+          {primaryData
+            ? primaryData.date.split('T')[1].split(':')[0] > 12
+              ? '오후'
+              : '오전'
+            : ''}
+          &nbsp;&nbsp;
+          {primaryData
+            ? primaryData.date.split('T')[1].split(':')[0] > 12
+              ? primaryData.date.split('T')[1].split(':')[0] -
+                12 +
+                ':' +
+                primaryData.date.split('T')[1].split(':')[1]
+              : primaryData.date.split('T')[1].split(':')[0] +
+                ':' +
+                primaryData.date.split('T')[1].split(':')[1]
+            : ''}
         </h2>
         <h2>
           <RedditIcon style={{ color: '#85C1E9' }} />
-          &nbsp; 할일: {primaryData.title}
+          &nbsp; 할일: {primaryData ? primaryData.title : ''}
         </h2>
         <hr />
 
