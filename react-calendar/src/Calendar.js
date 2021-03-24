@@ -39,15 +39,17 @@ function Calendar(props) {
       <FullCalendar
         plugins={[dayGridPlugin]}
         headerToolbar={{
-          start: 'prev,next',
+          start: 'prev next today',
           center: 'title',
-          end: 'today',
+          end: '',
         }}
         titleFormat={{ year: 'numeric', month: 'short' }}
         events={btn ? data_list : completedDate}
         eventClick={(e) => {
           props.history.push('/detail/' + e.event._def.extendedProps.publicId);
         }}
+        eventColor={'#ABEBC6'}
+        height={'100vh'}
       />
       <PositionBtn>
         <Fab

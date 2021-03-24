@@ -13,7 +13,7 @@ function Upload(props) {
 
   const addContent = () => {
     const new_item = {
-      date: dateTime.current.value.split('T')[0],
+      date: dateTime.current.value,
       title: plan.current.value,
       completed: false,
     };
@@ -41,7 +41,7 @@ function Upload(props) {
           style={{ marginBottom: '3rem' }}
           label='날짜를 추가해주세요'
           type='datetime-local'
-          defaultValue='0000-00-24T00:00'
+          defaultValue='0000-00-00T00:00'
           InputLabelProps={{
             shrink: true,
           }}

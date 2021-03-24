@@ -9,7 +9,6 @@ const UPDATE = 'calendar/UPDATE';
 
 const initialState = {
   list: [],
-  is_loaded: false,
 };
 // action creator
 export const getCalendar = (data) => {
@@ -114,7 +113,7 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'calendar/GET_CALENDAR': {
       const data = [...new Set([...action.data])];
-      return { list: data, is_loaded: true };
+      return { list: data };
     }
 
     case 'calendar/UPLOAD': {
