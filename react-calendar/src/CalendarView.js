@@ -1,7 +1,7 @@
 import React from 'react';
 
 function CalendarView() {
-  return <div>hello a a</div>;
+  return <div>hello world</div>;
 }
 
 export default CalendarView;
