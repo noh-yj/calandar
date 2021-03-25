@@ -36,13 +36,26 @@
 - 사용법은 다음과 같습니다.
 <hr/>
 <code>
-import firebase from 'firebase/app'; <br/>
-import 'firebase/firestore';<br/><br/><br/>
+import firebase from 'firebase/app'; 
+  </code>
+  <br/>
+  <code>
+import 'firebase/firestore';
+    </code>
+    <br/><br/><br/>
+  <code>
 const firebaseConfig = {
-  키를 추가하세요
-};<br/><br/>
-firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
 
+  키를 추가하세요
+};  </code><br/><br/>
+  <code>
+firebase.initializeApp(firebaseConfig);
+  </code>
+  <br/>
+    <code>
+const firestore = firebase.firestore();
+  </code>
+    <br/>
+      <code>
 export { firestore };
 </code>
