@@ -23,6 +23,7 @@ function Calendar(props) {
       date: val.date,
       publicId: val.id,
       completed: val.completed,
+      color: val.completed ? '#E74C3C' : '#ABEBC6',
     };
   });
 
@@ -49,7 +50,6 @@ function Calendar(props) {
         eventClick={(e) => {
           props.history.push('/detail/' + e.event._def.extendedProps.publicId);
         }}
-        eventColor={'#ABEBC6'}
         height={'100vh'}
       />
       <PositionBtn>
