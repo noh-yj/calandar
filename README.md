@@ -4,7 +4,7 @@
 
 - 개인 프로젝트
 - 프로젝트 주제: 일정관리 캘린더
-- 개발 기간: 2021.03.22 ~ 2021.03.23
+- 개발 기간: 2021.03.22 ~ 2021.03.24
 - React + firebase 사용
 - 데이터 베이스: firestore
 - 형상관리 툴: git
@@ -27,3 +27,22 @@
 - react-redux, redux
 - redux-middleware(redux-thunk)
 - react-router-dom
+<hr/>
+<br/>
+
+## 사용 시 주의 사항
+
+- firebase를 연결해서 사용하세요
+- 사용법은 다음과 같습니다.
+<hr/>
+<code>
+import firebase from 'firebase/app'; <br/>
+import 'firebase/firestore';<br/><br/><br/>
+const firebaseConfig = {
+  키를 추가하세요
+};<br/><br/>
+firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
+
+export { firestore };
+</code>

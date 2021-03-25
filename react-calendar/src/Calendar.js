@@ -73,7 +73,8 @@ const PositionBtn = styled.div`
   right: 10px;
   z-index: 10;
   @media only screen and (max-width: 768px) {
-    right: 50px;
+    top: 70%;
+    left: 10px;
     & p {
       display: none;
     }

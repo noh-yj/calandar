@@ -28,6 +28,7 @@ function App(props) {
               <AddIcon />
             </Fab>
           </PositionBtn>
+
           <CalendarViewBtn>
             <Fab
               variant='extended'
@@ -54,14 +55,19 @@ const PositionBtn = styled.div`
   top: 90%;
   right: 50px;
   z-index: 10;
+  @media only screen and (max-width: 768px) {
+    top: 90%;
+    left: 10px;
+  }
 `;
+
 const CalendarViewBtn = styled.div`
   position: fixed;
   top: 0;
   right: 10px;
   z-index: 10;
   @media only screen and (max-width: 768px) {
-    top: 90%;
+    top: 80%;
     left: 10px;
     & p {
       display: none;

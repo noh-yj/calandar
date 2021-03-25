@@ -46,7 +46,7 @@ function Detail(props) {
         <h2>
           <CalendarTodayIcon style={{ color: '#85C1E9' }} />
           &nbsp; 날짜: {primaryData ? primaryData.date.split('T')[0] : ' '}{' '}
-          &nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {primaryData
             ? primaryData.date.split('T')[1].split(':')[0] > 11
               ? '오후'
