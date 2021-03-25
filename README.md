@@ -1,4 +1,4 @@
-# calendar
+# calendar 프로젝트
 
 ## 개요
 
