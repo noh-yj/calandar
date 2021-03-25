@@ -31,61 +31,68 @@ function Upload(props) {
   };
 
   return (
-    <Container className='container'>
-      <Modal>
-        <h1>
-          <BorderColorIcon /> &nbsp;일정 추가하기
-        </h1>
-        <hr />
-        <TextField
-          style={{ marginBottom: '3rem' }}
-          label='날짜를 추가해주세요'
-          type='datetime-local'
-          defaultValue='0000-00-00T00:00'
-          InputLabelProps={{
-            shrink: true,
-          }}
-          inputRef={dateTime}
-        />
-        <input
-          type='text'
-          style={{
-            borderRadius: '5px',
-            border: '1px solid #888',
-            padding: '16px',
-            fontSize: '16px',
-            marginBottom: '3rem',
-          }}
-          placeholder='일정을 입력해주세요.'
-          ref={plan}
-        />
-
-        <BtnGroup>
-          <Button
-            variant='contained'
-            style={{ marginRight: '50px' }}
-            onClick={() => {
-              props.history.goBack();
+    <>
+      <Container>
+        <Modal>
+          <h1>
+            <BorderColorIcon /> &nbsp;일정 추가하기
+          </h1>
+          <hr />
+          <TextField
+            style={{ marginBottom: '3rem' }}
+            label='날짜를 추가해주세요'
+            type='datetime-local'
+            defaultValue='0000-00-00T00:00'
+            InputLabelProps={{
+              shrink: true,
             }}
-          >
-            뒤로가기
-          </Button>
-          <Button
-            variant='contained'
-            color='primary'
-            style={{ marginTop: '5px' }}
-            onClick={addContent}
-          >
-            일정 추가
-          </Button>
-        </BtnGroup>
-      </Modal>
-    </Container>
+            inputRef={dateTime}
+          />
+          <input
+            type='text'
+            style={{
+              borderRadius: '5px',
+              border: '1px solid #888',
+              padding: '16px',
+              fontSize: '16px',
+              marginBottom: '3rem',
+            }}
+            placeholder='일정을 입력해주세요.'
+            ref={plan}
+          />
+
+          <BtnGroup>
+            <Button
+              variant='contained'
+              style={{ marginRight: '50px' }}
+              onClick={() => {
+                props.history.goBack();
+              }}
+            >
+              뒤로가기
+            </Button>
+            <Button
+              variant='contained'
+              color='primary'
+              style={{ marginTop: '5px' }}
+              onClick={addContent}
+            >
+              일정 추가
+            </Button>
+          </BtnGroup>
+        </Modal>
+      </Container>
+      <Container2
+        onClick={() => {
+          props.history.replace('/');
+        }}
+      />
+    </>
   );
 }
 
 const Container = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -94,6 +101,13 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const Container2 = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
 const Modal = styled.div`
   display: flex;
@@ -104,6 +118,7 @@ const Modal = styled.div`
   width: 800px;
   height: 400px;
   box-sizing: border-box;
+  z-index: 10;
   & h1 {
     text-align: center;
     color: #af7ac5;

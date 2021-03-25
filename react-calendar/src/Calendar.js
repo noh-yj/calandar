@@ -29,6 +29,7 @@ function Calendar(props) {
   const completedDate = data_list.filter((val) => {
     return val.completed === true;
   });
+
   const [btn, setBtn] = useState(true);
   const btnEvent = () => {
     setBtn(!btn);
